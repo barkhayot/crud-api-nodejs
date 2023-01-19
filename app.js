@@ -4,9 +4,21 @@ const port = 3000
 // const bodyParser = require('body-parser');
 // const kafka = require('kafka-node');
 const sqlite3 = require('sqlite3').verbose();
+const { Client } = require('pg')
+
+const db = new Client({
+    user: "admin",
+    host: "dpg-cf4log1gp3js6fk0opu0-a",
+    database: "postgresadmin",
+    password: "fvJhkcZmrKgmRssEYt3woe0wPJ7Z8dhq",
+    port: 5432
+});
+
+db.connect();
+
 
 // Database Connection and implementation
-const db = new sqlite3.Database('./database.db');
+//const db = new sqlite3.Database('./database.db');
 
 // Parse JSON request body
 app.use(express.json());
